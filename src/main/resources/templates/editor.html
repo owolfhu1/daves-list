@@ -1,0 +1,92 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"/>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <meta charset="UTF-8" />
+    <title>Listing editor</title>
+</head>
+<body>
+<div class="container">
+
+<form action="#" th:action="@{/addRow}" th:object="${listing}" method="post">
+    <div class="form-group">
+        <label for="address">address</label>
+        <input th:field="*{address}" type="text" class="form-control" id="address" placeholder="address"/>
+        <span th:if="${#fields.hasErrors('address')}" th:errors="*{address}">Id Error</span>
+    </div>
+    <div class="form-group">
+        <label for="city">city</label>
+        <input th:field="*{city}" type="text" class="form-control" id="city" placeholder="city"/>
+        <span th:if="${#fields.hasErrors('city')}" th:errors="*{city}">Id Error</span>
+    </div>
+    <div class="form-group">
+        <label for="state">state</label>
+        <input th:field="*{state}" type="text" class="form-control" id="state" placeholder="state"/>
+        <span th:if="${#fields.hasErrors('state')}" th:errors="*{state}">Id Error</span>
+    </div>
+    <div class="form-group">
+        <label for="price">price</label>
+        <input th:field="*{price}" type="number" class="form-control" id="price" placeholder="price"/>
+        <span th:if="${#fields.hasErrors('price')}" th:errors="*{price}">Id Error</span>
+    </div>
+    <div class="form-group">
+        <label for="description">description</label>
+        <input th:field="*{description}" type="text" class="form-control" id="description" placeholder="description"/>
+        <span th:if="${#fields.hasErrors('description')}" th:errors="*{description}">Id Error</span>
+    </div>
+    <div class="form-group">
+        <label for="rules">rules</label>
+        <input th:field="*{rules}" type="text" class="form-control" id="rules" placeholder="rules"/>
+        <span th:if="${#fields.hasErrors('rules')}" th:errors="*{rules}">Id Error</span>
+    </div>
+    <div class="form-group">
+        <label for="wifi">wifi</label>
+        <input th:field="*{wifi}" type="text" class="form-control" id="wifi" placeholder="wifi"/>
+        <span th:if="${#fields.hasErrors('wifi')}" th:errors="*{wifi}">Id Error</span>
+    </div>
+    <div class="form-group">
+        <label for="cable">cable</label>
+        <input th:field="*{cable}" type="text" class="form-control" id="cable" placeholder="cable"/>
+        <span th:if="${#fields.hasErrors('cable')}" th:errors="*{cable}">Id Error</span>
+    </div>
+    <div class="form-group">
+        <label for="bathroom">bathroom</label>
+        <input th:field="*{bathroom}" type="text" class="form-control" id="bathroom" placeholder="bathroom"/>
+        <span th:if="${#fields.hasErrors('bathroom')}" th:errors="*{bathroom}">Id Error</span>
+    </div>
+
+    <button type="submit" class="btn btn-default">Add this room to listings</button>
+</form>
+    <br/>
+
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        <th>Address</th>
+        <th>City</th>
+        <th>State</th>
+        <th>Price</th>
+        <th>Details</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="item: ${list}">
+        <td th:text="${item.getAddress()}">Address</td>
+        <td th:text="${item.getCity()}">City</td>
+        <td th:text="${item.getState()}">State</td>
+        <td th:text="${item.getPrice()}">Price</td>
+        <td><a th:href="@{'/detail/' + ${item.getId()}}">details</a></td>
+    </tr>
+    </tbody>
+</table>
+
+</div>
+
+
+</body>
+</html>

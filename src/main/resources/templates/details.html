@@ -1,0 +1,31 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"/>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <meta charset="UTF-8" />
+    <title>details</title>
+</head>
+<body>
+
+<div class="container">
+
+    <p th:text="${listing.getAddress()}">error</p>
+    <p th:text="${listing.getState()}">error</p>
+    <p th:text="${listing.getCity()}">error</p>
+    <p th:text="${listing.getPrice()}">error</p>
+    <p th:text="${listing.getDescription()}">error</p>
+    <p th:text="${listing.getRules()}">error</p>
+    <p th:text="${listing.getWifi()}">error</p>
+    <p th:text="${listing.getCable()}">error</p>
+    <p th:text="${listing.getBathroom()}">error</p>
+    <p th:text="${listing.getRented()}">error</p>
+
+</div>
+
+</body>
+</html>
